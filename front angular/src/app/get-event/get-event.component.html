@@ -1,4 +1,3 @@
-
 <h3 *ngIf="bestEvent.idE">Meilleur Evenement</h3>
 <div  *ngIf="bestEvent.idE" align="center">
   <div class="card" style="width: 18rem;">
@@ -9,12 +8,11 @@
       <p class="card-text">{{bestEvent.description}}</p>
       <p class="card-text">De {{bestEvent.dateStart | date : 'dd MMMM yyyy'}} à {{bestEvent.dateEnd | date : 'dd MMMM yyyy'}}</p>
       <p class="card-text">Nombre de Participants : {{bestEvent.participants.length}}</p>
-      <!--<a (click)="participer(bestEvent.idE)" class="btn btn-primary"><span
-          class="material-icons">done</span>&nbsp;Participer</a>-->
+      <a (click)="participer(bestEvent.idE)" class="btn btn-primary"><span
+          class="material-icons">done</span>&nbsp;Participer</a>
     </div>
   </div>
 </div>
-
 
 
 
@@ -27,7 +25,6 @@
       <div class="card-body">
         <h5 class="card-title">{{e.titre}}</h5>
         <p class="card-text">{{e.description}}</p>
-        <p class="card-text">Nombre de Participants : {{e.participants.length}}</p>
         <p class="card-text">De {{e.dateStart | date : 'dd MMMM yyyy'}} à {{e.dateEnd | date : 'dd MMMM yyyy'}}</p>
         <a (click)="participer(e.idE)" class="btn btn-primary"><span
             class="material-icons">done</span>&nbsp;Participer</a>

@@ -40,11 +40,8 @@ export class GetEventComponent implements OnInit {
     return this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,' + base64String)
   }
 
-
-  /**OVER HERE */
-
   participer(idEvent : number){
-    this.prtcp.participate(idEvent,3).subscribe(()=>{
+    this.prtcp.participate(idEvent,1).subscribe(()=>{
       this.refreshFeed();
       this.getBestEvent();
     })
