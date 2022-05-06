@@ -1,0 +1,93 @@
+<div class="post create">
+    <div class="post-top">
+        <div class="dp">
+            <img src="https://scontent.ftun16-1.fna.fbcdn.net/v/t39.30808-6/245445509_1238619473280613_8459006650414119004_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=UKe6okB5CX0AX_bKyHo&_nc_ht=scontent.ftun16-1.fna&oh=00_AT_13PJtjq9DwlWXklP9rhRPV12fFKoG5V3wAATHXsGS8g&oe=62627ACA"
+                alt="">
+        </div>
+        <input type="text" placeholder="What's on your mind, Inès ?" />
+    </div>
+
+    <div class="post-bottom">
+        <div class="action">
+            <i class="fa fa-video"></i>
+            <span>&nbsp;Live video</span>
+        </div>
+        <div class="action">
+            <i class="fa fa-image"></i>
+            <span>&nbsp;Photo/Video</span>
+        </div>
+        <div class="action">
+            <i class="fa fa-smile"></i>
+            <span>&nbsp;Feeling/Activity</span>
+        </div>
+    </div>
+</div>
+
+<div class="post" align="center">
+    <div class="post-content">
+        <h3>Meuilleur Utilisateur Actuel</h3>
+        <br>
+        <h4>{{bestUser.nom}}, avec un Score de {{bestUser.score}}</h4>
+        <br>
+        <h4>Niveau de {{bestUser.nom}} : {{bestUser.niveauScore}}</h4>
+    </div>
+</div>
+
+<div class="post" *ngFor="let act of actualites">
+    <div *ngIf="act.idevent">
+        <div class="post-top">
+            <div class="dp">
+                <img src="./assets/admin.png" alt="">
+            </div>
+            <div class="post-info">
+                <p class="name">Administration</p>
+                <span class="time">{{act.idevent.dateStart | date : 'dd MMMM'}}</span>
+            </div>
+            <i class="fas fa-ellipsis-h"></i>
+        </div>
+
+        <div class="post-content">
+            <h3>⚠️📣⚠️📣⚠️{{act.idevent.titre}}⚠️📣⚠️📣⚠️</h3>
+            <h5>{{act.idevent.description}}</h5>
+            <h5>Du {{act.idevent.dateStart | date : 'dd MMMM'}} à {{act.idevent.dateEnd | date : 'dd MMMM , yyyy'}}</h5>
+            <h5>Nombre de Places Disponibles : {{act.idevent.nbrPlace}}</h5>
+            <img [src]="convert(act.idevent.image.content)" />
+        </div>
+
+        <div class="post-bottom">
+            <div class="action">
+                <i class="far fa-star"></i>
+                <span> Participer</span>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="act.idquiz">
+        <div class="post-top">
+            <div class="dp">
+                <img src="./assets/admin.png" alt="">
+            </div>
+            <div class="post-info">
+                <p class="name">Administration</p>
+                <span class="time">{{act.idquiz.dateC | date : 'dd MMMM'}}</span>
+            </div>
+            <i class="fas fa-ellipsis-h"></i>
+        </div>
+
+        <div class="post-content">
+            <h3>Date de Début: {{act.idquiz.dateS | date : 'dd MMMM yyyy'}}</h3>
+            <br>
+            <h5>Comporte {{act.idquiz.questions.length}} Questions</h5>
+        </div>
+
+        <div class="post-bottom">
+            <div (click)="getQuizQuestions(act.idquiz.questions)" class="action">
+                <i  class="far fa-star"></i>
+                <span> Prendre le Quiz</span>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>

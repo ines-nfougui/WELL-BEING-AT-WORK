@@ -1,0 +1,57 @@
+<h1 mat-dialog-title align="center">Modifier Cet Evènement</h1>
+<br>
+<form [formGroup] = "form" (ngSubmit)="submit()">
+    <div mat-dialog-content>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <input formControlName="titre" id="titre" class="form-control" type="text"
+                        placeholder="Titre d'évenement">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <input formControlName="nbrPlaces" id="nbrPlaces" class="form-control" type="number" min="0"
+                        placeholder="Nombre de Places">
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="form-group">
+                <textarea formControlName="description" id="description" class="form-control"
+                    placeholder="Description d'évenement"></textarea>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="dateDebut">Date Début</label>
+                    <input formControlName="dateDebut" id="dateDebut" type="date" class="form-control"
+                        placeholder="Date début">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="dateC">Date C?</label>
+                    <input formControlName="dateC" id="dateC" type="date" class="form-control" placeholder="Date C?">
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="dateFin">Date Fin</label>
+                    <input formControlName="dateFin" id="dateFin" type="date" class="form-control"
+                        placeholder="Date Fin">
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+    <div mat-dialog-actions align="center">
+        <br><br>
+        <button type="button" mat-dialog-close class="btn btn-danger">Annuler</button>&nbsp;
+        <button type="submit"  class="btn btn-success">Modifier</button>
+    </div>
+
+</form>

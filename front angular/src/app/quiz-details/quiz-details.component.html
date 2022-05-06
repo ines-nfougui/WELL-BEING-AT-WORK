@@ -1,0 +1,20 @@
+<div mat-dialog-title align="center">
+    <h2>Liste des questions de ce Quiz</h2>
+</div>
+<mat-dialog-content>
+    <mat-expansion-panel *ngFor="let question of questions" align="center">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                {{question.question}}
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <p><b>Option 1</b> : {{question.option1}}</p>
+        <p><b>Option 2</b> : {{question.option2}}</p>
+        <p><b>Option 3</b> : {{question.option3}}</p>
+        <p><b>Réponse Correcte</b> : {{question.croorectRep}}</p>
+        <button type="button" class="btn btn-danger center" (click)="popUpConfirmDelete(question.idQ)" ><mat-icon>delete</mat-icon></button>        
+    </mat-expansion-panel>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+    <button type="button" class="btn btn-dark" mat-dialog-close>Fermer</button>
+</mat-dialog-actions>

@@ -1,0 +1,104 @@
+<mat-dialog-content>
+    <form [formGroup]="form" (submit)="submit()">
+        <mat-stepper linear="true" #stepper>
+            <mat-step>
+                <ng-template matStepLabel>Question 1</ng-template>
+
+                <br>
+                <h2>{{questions[0].question}}</h2>
+                <br>
+                <input type="radio" formControlName="response1" name="response1" id="q1o1" [value]="questions[0].option1"><label for="q1o1">&nbsp;<b>{{questions[0].option1}}</b></label><br><br>
+                <input type="radio" formControlName="response1" name="response1" id="q1o2" [value]="questions[0].option2"><label for="q1o2">&nbsp;<b>{{questions[0].option2}}</b></label><br><br>
+                <input type="radio" formControlName="response1" name="response1" id="q1o3" [value]="questions[0].option3"><label for="q1o3">&nbsp;<b>{{questions[0].option3}}</b></label>
+                <div>
+                    <br>
+                    <button mat-button matStepperNext type="button" >Suivant</button>
+                </div>
+
+            </mat-step>
+
+            <mat-step *ngIf="questions[1]">
+                <ng-template matStepLabel>Question 2</ng-template>
+
+                <br>
+                <h2>{{questions[1].question}}</h2>
+                <br>
+                <input type="radio" formControlName="response2" name="response2" id="q2o1" [value]="questions[1].option1"><label for="q2o1">&nbsp;<b>{{questions[1].option1}}</b></label><br><br>
+                <input type="radio" formControlName="response2" name="response2" id="q2o2" [value]="questions[1].option2"><label for="q2o2">&nbsp;<b>{{questions[1].option2}}</b></label><br><br>
+                <input type="radio" formControlName="response2" name="response2" id="q2o3" [value]="questions[1].option3"><label for="q2o3">&nbsp;<b>{{questions[1].option3}}</b></label>
+                <div>
+                    <br>
+                    <button mat-button matStepperPrevious  type="button" >Précédent</button>
+                    <button mat-button matStepperNext type="button"  >Suivant</button>
+                </div>
+
+            </mat-step>
+
+            <mat-step *ngIf="questions[2]">
+                <ng-template matStepLabel>Question 3</ng-template>
+
+                <br>
+                <h2>{{questions[2].question}}</h2>
+                <br>
+                <input type="radio" formControlName="response3" name="response3" id="q3o1" [value]="questions[2].option1"><label for="q3o1">&nbsp;<b>{{questions[2].option1}}</b></label><br><br>
+                <input type="radio" formControlName="response3" name="response3" id="q3o2" [value]="questions[2].option2"><label for="q3o2">&nbsp;<b>{{questions[2].option2}}</b></label><br><br>
+                <input type="radio" formControlName="response3" name="response3" id="q3o3" [value]="questions[2].option3"><label for="q3o3">&nbsp;<b>{{questions[2].option3}}</b></label>
+                <div>
+                    <br>
+                    <button mat-button matStepperPrevious type="button" >Précédent</button>
+                    <button mat-button matStepperNext type="button" >Suivant</button>
+                </div>
+
+            </mat-step>
+
+            <mat-step *ngIf="questions[3]">
+                <ng-template matStepLabel>Question 4</ng-template>
+
+                <br>
+                <h2>{{questions[3].question}}</h2>
+                <br>
+                <input type="radio" formControlName="response4" name="response4" id="q4o1" [value]="questions[3].option1"><label for="q4o1">&nbsp;<b>{{questions[3].option1}}</b></label><br><br>
+                <input type="radio" formControlName="response4" name="response4" id="q4o2" [value]="questions[3].option2"><label for="q4o2">&nbsp;<b>{{questions[3].option2}}</b></label><br><br>
+                <input type="radio" formControlName="response4" name="response4" id="q4o3" [value]="questions[3].option3"><label for="q4o3">&nbsp;<b>{{questions[3].option3}}</b></label>
+                <div>
+                    <br>
+                    <button mat-button matStepperPrevious type="button" >Précédent</button>
+                    <button mat-button matStepperNext type="button" >Suivant</button>
+                </div>
+
+            </mat-step>
+
+            <mat-step *ngIf="questions[4]">
+                <ng-template matStepLabel>Question 5</ng-template>
+
+                <br>
+                <h2>{{questions[4].question}}</h2>
+                <br>
+                <input type="radio" formControlName="response5" name="response5" id="q5o1" [value]="questions[4].option1"><label for="q5o1">&nbsp;<b>{{questions[4].option1}}</b></label><br><br>
+                <input type="radio" formControlName="response5" name="response5" id="q5o2" [value]="questions[4].option2"><label for="q5o2">&nbsp;<b>{{questions[4].option2}}</b></label><br><br>
+                <input type="radio" formControlName="response5" name="response5" id="q5o3" [value]="questions[4].option3"><label for="q5o3">&nbsp;<b>{{questions[4].option3}}</b></label>
+                <div>
+                    <br>
+                    <button mat-button matStepperPrevious type="button" >Précédent</button>
+                    <button mat-button matStepperNext type="button" >Suivant</button>
+                </div>
+
+            </mat-step>
+
+            <mat-step>
+                <ng-template matStepLabel>Fin</ng-template>
+                <br>
+                <p>Quand Vous Avez Remplis tous les champs , Confirmer vos réponses ici</p>
+                <br>
+                <button mat-raised-button type="submit">Envoyer les Réponses</button>
+                <div>
+                    <br>
+                    <button mat-button matStepperPrevious type="button" >Précédent</button>
+                </div>
+            </mat-step>
+        </mat-stepper>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-raised-button type="button" matDialogClose>Annuler</button>
+</mat-dialog-actions>

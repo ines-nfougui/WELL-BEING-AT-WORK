@@ -1,0 +1,88 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card mb-4">
+            <div class="card-header pb-0">
+                <h6>Liste des Evenements
+                    <button class="btn btn-rounded btn-primary" (click)="addEventDialog()">
+                        <span class="material-icons">
+                            add_task
+                        </span>
+                    </button>
+                </h6>
+
+            </div>
+            <div class="card-body px-0 pt-0 pb-2">
+                <div class="table-responsive p-0">
+                    <table class="table-responsive align-items-center mb-0">
+                        <thead>
+                            <tr>
+                                <th colspan="2"
+                                    class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7"
+                                    style="text-align: center;">
+                                    Evenement
+                                </th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                    Date Début</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                    Date C?</th>
+                                <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                    Date Fin</th>
+                                <th
+                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Nombre de Places</th>
+                                <th
+                                    class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                    Nombre de Participants</th>
+                                <th class="text-secondary opacity-7"></th>
+                                <th class="text-secondary opacity-7"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let event of listeven">
+                                <td>
+                                    <div class="d-flex px-2 py-1">
+                                        <div class="d-flex flex-column justify-content-center">
+                                            <h6 class="mb-0 text-sm">{{event.titre}}</h6>
+                                            <p class="text-xs text-secondary mb-0">{{event.description}}</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span *ngIf="event.image"><img [src]="convert(event.image.content)"
+                                            height="100px"></span>
+                                </td>
+                                <td>
+                                    <p class="text-xs font-weight-bold mb-0">{{event.dateStart | date : 'dd MMMM,
+                                        yyyy'}}</p>
+                                </td>
+                                <td>
+                                    <p class="text-xs font-weight-bold mb-0">{{event.dateC | date : 'dd MMMM, yyyy'}}
+                                    </p>
+                                </td>
+                                <td>
+                                    <p class="text-xs font-weight-bold mb-0">{{event.dateEnd | date : 'dd MMMM , yyyy'}}
+                                    </p>
+                                </td>
+                                <td class="align-middle text-center">
+                                    <span class="text-secondary text-xs font-weight-bold">{{event.nbrPlace}}</span>
+                                </td>
+                                <td class="align-middle text-center">
+                                    <span
+                                        class="text-secondary text-xs font-weight-bold">{{event.participants.length}}</span>
+                                </td>
+                                <td class="align-middle">
+                                    <button class="btn btn-success" color="primary"
+                                        (click)="openUpdate(event)">Modifier</button>
+                                </td>
+                                <td class="align-middle">
+                                    <button *ngIf="!event.archived" class="btn btn-danger" (click)="pushArchive(event.idE)">Archiver</button>
+                                    <button *ngIf="event.archived" class="btn btn-warn" (click)="pushUnarchive(event.idE)">Désarchiver</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

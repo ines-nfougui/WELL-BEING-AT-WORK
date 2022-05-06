@@ -1,0 +1,38 @@
+<br>
+<br>
+<br>
+
+
+<div class="container">
+    <form #f="ngForm" (ngSubmit)="save()">
+      <div class="form-group">
+        <label>Id</label>
+        <input type="text" name="id" class="form-control"  [(ngModel)]="product.id" #i="ngModel" required pattern="[0-9]+$">
+      </div>
+      <div class="alert alert-danger" *ngIf="i.invalid && i.touched">
+       <div *ngIf="i.errors?.['required']">id is a required field</div>
+        <div *ngIf="i.errors?.['pattern']">Please provide a valid id</div>
+      </div>
+      <div class="form-group">
+        <label>Title:</label>
+        <input type="text" name="title" class="form-control" [(ngModel)]="product.title" #t="ngModel"  required minlength="3">
+      </div>
+      <div class="alert alert-danger" *ngIf="t.invalid && t.touched">
+        <div *ngIf="t.errors?.['required']"> Title is a required field</div>
+        <div *ngIf="t.errors?.['minlength']"> Title minlength is equal to 3</div>
+      </div>
+      <div class="form-group">
+        <label>Quantity:</label>
+        <input type="number" name="quantity" class="form-control" [(ngModel)]="product.quantity" #q="ngModel" required
+               pattern="[0-9][0-9][1-9]">
+      </div>
+      <div class="alert alert-danger" *ngIf="q.invalid && q.touched">
+        <div *ngIf="q.errors?.['required']"> Quantity is a required field</div>
+        <div *ngIf="q.errors?.['pattern']">Please provide a valid quantity </div>
+      </div>
+      <button class="btn btn-warning" [disabled]="f.invalid"  >
+        save
+      </button>
+    </form>
+  </div>
+  

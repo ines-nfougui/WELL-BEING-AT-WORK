@@ -1,0 +1,30 @@
+<h1 mat-dialog-title align="center">Ajouter un Nouveau Quiz</h1>
+<br>
+<form [formGroup]="form" (ngSubmit)="submit()">
+    <div mat-dialog-content>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="nom">Nom du Quiz</label>
+                    <input formControlName="nom" id="nom" type="text" class="form-control"
+                        placeholder="Nom du Quiz">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="dateDebut">Date Début</label>
+                    <input formControlName="dateS" id="dateDebut" type="date" class="form-control"
+                        placeholder="Date début">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div mat-dialog-actions align="center">
+        <br><br>
+        <button type="button" mat-dialog-close class="btn btn-danger">Annuler</button>&nbsp;
+        <button type="submit" class="btn btn-success">Créer</button>
+    </div>
+
+</form>

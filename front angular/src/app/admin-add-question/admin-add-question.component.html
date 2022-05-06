@@ -1,0 +1,52 @@
+<div mat-dialog-title align="center">
+    <h2>Ajouter Une Question</h2>
+</div>
+<form [formGroup]="form" (submit)="submit()">
+    <mat-dialog-content>
+
+        <div class="row">
+            <div class="col">
+                <label for="question">Question</label>
+                <input formControlName="question" type="text" name="" id="question" class="form-control" placeholder="Poser votre question..."
+                    aria-describedby="helpId">
+                <small id="helpId" class="text-muted">Veillez que la question soit claire...</small>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <label for="option1">Option 1</label>
+                <input formControlName="option1" type="text" name="" id="option1" class="form-control" placeholder="Première Option...">
+            </div>
+            <div class="col">
+                <label for="option2">Option 2</label>
+                <input formControlName="option2" type="text" name="" id="option2" class="form-control" placeholder="Deuxième Option...">
+            </div>
+            <div class="col">
+                <label for="option3">Option 3</label>
+                <input formControlName="option3" type="text" name="" id="option3" class="form-control" placeholder="Troisième Option...">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label for="rj">Réponse Juste</label>
+                <input formControlName="correctRep" type="text" name="" id="rj" class="form-control" placeholder="Réponse à la question">
+            </div>
+            <div class="col">
+                <label for="wq">Associé à quel Quiz</label>
+                <select formControlName="associatedQuiz" [(ngModel)]="selectedOption" (change)="log()" id="wq" class="form-control">
+                    <option selected disabled>--Veuillez Choisir un Quiz--</option>
+                    <option *ngFor="let quiz of quizs" [ngValue]="quiz.idQ" >{{quiz.nom}}, le {{quiz.dateS | date : 'dd MMMM yyyy'}}</option>
+                </select>
+            </div>
+        </div>
+
+
+
+
+    </mat-dialog-content>
+    <mat-dialog-actions align="center">
+        <button type="button" class="btn btn-danger" mat-dialog-close>Annuler</button>&nbsp;
+        <button type="submit" class="btn btn-success">Ajouter</button>
+    </mat-dialog-actions>
+</form>

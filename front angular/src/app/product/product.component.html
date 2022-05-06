@@ -1,0 +1,35 @@
+<h2>Product List</h2>
+<form>
+  <div class="form-group">
+    <label>Search:</label>
+    <input type="number" name="price" class="form-control" [(ngModel)]="priceMax">
+  </div>
+</form>
+<table class="table">
+  <tr><th>Id</th><th>Title</th><th>Price</th><th>quantity</th><th>like</th><th>Detail</th></tr>
+  <tbody  *ngFor="let product of productList; let i= index" >
+   <tr *ngIf="product.price<priceMax || priceMax==null">
+     
+     <td>{{product.id}}</td>
+     <td>{{product.title}}</td>
+     <td>{{product.price}}</td>
+     <td>{{product.quantity}}</td>
+     <td>{{product.like}}</td>
+     <td> <a routerLink="/{{product.id}}"> detail{{product.title}}</a>  </td>
+     <td><button class="btn btn-warning" (click)="likeprod(i)"    >like</button></td>
+     <td>
+
+       <button class="btn btn-success" [disabled]="product.quantity==0" (click)="buyProdut(i)">
+         buy
+       </button>
+     </td>
+   </tr>
+  </tbody>
+</table>
+
+<br>
+<br>
+<app-fils (parentfunction)="parentfunction($event)"></app-fils>
+
+
+

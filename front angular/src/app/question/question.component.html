@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="col-12">
+      <div class="card mb-4">
+          <div class="card-header pb-0">
+              <h6>Liste des Questions
+                  <button class="btn btn-rounded btn-primary" (click)="popAddQuestion()">
+                      <span class="material-icons">
+                          add_task
+                      </span>
+                  </button>
+              </h6>
+
+          </div>
+          <div class="card-body px-0 pt-0 pb-2">
+              <div class="table-responsive p-0">
+                  <table class="table align-items-center mb-0">
+                      <thead>
+                          <tr>
+                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                  #
+                              </th>
+                              <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                  Question</th>
+                              <!-- <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                  Quiz Associé</th> -->
+                              <th class="text-secondary opacity-7"></th>
+                              <th class="text-secondary opacity-7"></th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr *ngFor="let question of questions">
+                              <th>
+                                  <div class="d-flex px-2 py-1">
+                                      <h6 class="mb-0 text-sm">{{question.idQ}}</h6>
+                                  </div>
+                              </th>
+                              <td>
+                                  <span class="text-secondary text-xs font-weight-bold">{{question.question}}</span>
+                              </td>
+                              <!-- <td>
+                                  <span class="text-secondary text-xs font-weight-bold">Quiz de {{getQuizById(question.idQz) | date : 'dd MMMM yyyy'}}</span>
+                              </td> -->
+                              <!-- <td class="align-middle">
+                                  <button class="btn btn-success" color="primary">Modifier</button>
+                              </td> -->
+                              <td class="align-middle">
+                                  <button class="btn btn-danger" (click)="popConfirmDeleteQuestion(question.idQ)"  color="warn">Supprimer</button>
+                              </td>
+                          </tr>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

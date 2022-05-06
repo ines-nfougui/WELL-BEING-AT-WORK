@@ -1,0 +1,25 @@
+<div class="middle-panel" style="margin-top: 75px;">
+
+
+  <h3>Quizs Disponibles ({{listqui.length}})</h3>
+
+  <br>
+  <div class="row">
+    <div class="col" *ngFor="let e of listqui">
+
+      <div *ngIf="e.questions.length > 0">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{e.nom}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Créé le {{e.dateC | date : 'MMMM dd, yyyy'}} à {{e.dateC | date
+              : 'HH:mm'}}</h6>
+            <p class="card-text">Date de Début : {{e.dateS | date : 'MMMM dd, yyyy'}}</p>
+            <button class="card-link btn" (click)="getQuizQuestions(e.questions)">Répondre au Quiz</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
